@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>명언</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .quote-container {
+            margin-bottom: 20px;
+        }
+
+        .quote {
+            font-size: 24px;
+            font-style: italic;
+            color: #333;
+        }
+
+        .author {
+            font-size: 18px;
+            font-weight: bold;
+            color: #777;
+        }
+
+        #new-quote-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #new-quote-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>명언</h1>
+        <div class="quote-container">
+            <p class="quote" id="quote">명언이 여기에 나타납니다...</p>
+            <p class="author" id="author">- 저자</p>
+        </div>
+        <button id="new-quote-btn">새로운 명언</button>
+    </div>
+
+    <script>
+        const quotes = [
+            {
+                quote: "삶에 대한 위대한 영광은 결코 넘어지지 않는 데에 있지 않습니다. 오히려 넘어질 때마다 일어나는 데에 있습니다.",
+                author: "넬슨 만델라"
+            },
+            {
+                quote: "시작하는 방법은 말하는 것을 그만두고 시작하는 것입니다.",
+                author: "월트 디즈니"
+            },
+            {
+                quote: "당신이 바쁜 다른 계획을 세울 때 삶이 일어납니다.",
+                author: "존 레논"
+            },
+            {
+                quote: "당신이 갈 때마다 행복하게 떠나도록 하십시오. 아무도 더 행복하지 않고 올 수 없게 하십시오.",
+                author: "마더 테레사"
+            },
+            {
+                quote: "결국, 중요한 것은 당신의 삶에서 보내는 연도가 아니라 당신의 삶에서 보내는 연도입니다.",
+                author: "에이브러햄 링컨"
+            }
+        ];
+
+        function displayQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quote').textContent = quotes[randomIndex].quote;
+            document.getElementById('author').textContent = "-" + quotes[randomIndex].author;
+        }
+
+        document.getElementById('new-quote-btn').addEventListener('click', displayQuote);
+
+        // 페이지가 로드될 때 한 번 명언을 표시
+        displayQuote();
+    </script>
+</body>
+</html>
